@@ -16,18 +16,18 @@
 	</head>
 
 	<body background="./img/workoutlog.jpg">
+	<!-- Navigation bar at the top -->
 	<nav class="navbar">
 		<div class="container-fluid">
 			<ul class="nav nav-pills">
 				<a href="#update-log" data-toggle="tab" class="disabled" type="hidden"></a>
 				<li><a href="#home" id="loginout" class="disabled" data-toggle="tab">Login</a></li>
-				<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+				<li class="active"><a href="#home" data-toggle="tab" id="hometoggle">Home</a></li>
 				<li><a href="#define" data-toggle="tab">Define</a></li>
 				<li><a href="#log" data-toggle="tab">Log</a></li>
 				<li><a href="#history" data-toggle="tab">View History</a></li>
-				<!-- out test button -->
-				<li><a href="#" id="testAPI">Test API</a></li>
-				<li class="nav navbar-nav navbar-right"><a href="#"><span class="glyphicon glyphicon-user"></span>Account</a></li>
+				<!-- Account button on the right side -->
+				<li class="nav navbar-nav navbar-right"><a href="#account" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>Account</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -46,51 +46,72 @@
 				</div>
 
 				<!--DEFINE-->
-				<div class="tab-pane fade col-md-4" id="define">
-					<h2>Define</h2>
-						<label for="def-description">Description</label>
-						<textarea class="form-control" id="def-description" rows="3"></textarea>
+				<div class="tab-pane fade" id="define">
+					<div class="col-md-4">
+						<h2>Define</h2>
 						<label for="def-logype">Log work by</label>
 						<select class="form-control" id="def-logtype">
 							<option>Time</option>
 							<option>Weight</option>
 							<option>Reps</option>
 						</select>
+						<label for="def-description">Description</label>
+						<textarea class="form-control" id="def-description" rows="3"></textarea>
+						<br>
 						<button id="def-save" class="btn btn-primary">Save</button>
+					</div>
 				</div>
 				<!--Log-->
-				<div class="tab-pane fade col-md-4" id="log">
-					<h2>Log</h2>
-					<label>Result</label>
-					<input type="text" class="form-control" id="log-result"></input>
-					<label>Workout Select:</label>
-					<select class="form-control" id="log-definition">
-					</select>
-					<label>notes</label>
-					<textarea class="form-control" id="log-description" rows="3"></textarea>
-					<button id="log-save" class="btn btn-primary">Save</button>
+				<div class="tab-pane fade" id="log">
+					<div class="col-md-4">
+						<h2>Log</h2>
+						<label>Result</label>
+						<input type="text" class="form-control" id="log-result"></input>
+						<label>Workout Select:</label>
+						<select class="form-control" id="log-definition">
+						</select>
+						<label>notes</label>
+						<textarea class="form-control" id="log-description" rows="3"></textarea>
+						<br>
+						<button id="log-save" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+				<!-- Account page -->
+				<div class="tab-pane fade" id="account">
+					<h2>Account Details</h2>
+					<h3>Username</h3>
+						<div>USERNAME</div>
+					<h3>Password</h3>
+						<div>PASSWORD</div>
+					<br>
+					<button id="log-save" class="btn btn-primary">Edit Account</button>
 				</div>
 				<!--UPDATING A WORKOUT SECTION-->
-				<div class="tab-pane fade col-md-4" id="update-log">
-					<h2>Log Update</h2>
-					<label>Result</label>
-					<input type="hidden" class="form-control" id="update-id" />
-					<input type="text" class="form-control" id="update-result" />
-					<label>Workout Select:</label>
-					<select class="form-control" id="update-definition">
-					</select>
-					<label>notes</label>
-					<textarea class="form-control" id="update-description" rows="3"></textarea>
-					<br />
-					<button id="log-update" class="btn btn-primary">Save</button>
+				<div class="tab-pane fade" id="update-log">
+					<div class="col-md-4">
+						<h2>Log Update</h2>
+						<label>Result</label>
+						<input type="hidden" class="form-control" id="update-id" />
+						<input type="text" class="form-control" id="update-result" />
+						<label>Workout Select:</label>
+						<select class="form-control" id="update-definition">
+						</select>
+						<label>notes</label>
+						<textarea class="form-control" id="update-description" rows="3"></textarea>
+						<br />
+						<button id="log-update" class="btn btn-primary">Save</button>
+					</div>
 				</div>
-				<div class="tab-pane fade col-md-4" id="history">
-					<h2>History</h2>
-					<ul class="list-group" id="history-list">
-					</ul>
+				<div class="tab-pane fade" id="history">
+					<div class="col-md-4">
+						<h2>History</h2>
+						<ul class="list-group" id="history-list">
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
+		<!-- Pop up prompt to let you signup -->
 		<div class="modal fade" id="login-modal" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">

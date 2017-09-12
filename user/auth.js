@@ -36,6 +36,7 @@ $(function(){
 				$("#su_username").val("");
 				$("#su_password").val("");
 				$('a[href="#define"]').tab('show');
+				//$('#hometoggle').text("")
 			}).fail(function() {
 				console.log("failed")
 				$("#su_error").text("There was an issue with sign up").show();
@@ -60,10 +61,10 @@ $(function(){
 				url: WorkoutLog.API_BASE + "login",
 				data: JSON.stringify(user),
 				contentType: "application/json"
-			})
-
+			});
 			//login done/fail
 			login.done(function(data) {
+				console.log("working")
 				if (data.sessionToken) {
 					WorkoutLog.setAuthHeader(data.sessionToken);
 					WorkoutLog.definition.fetchAll();
@@ -96,7 +97,7 @@ $(function(){
 
 	//bind events
 	$("#signup").on("click", WorkoutLog.signup);
-	$("#login").on("click", WorkoutLog.loginout);
+	$("#login").on("click", WorkoutLog.login);
 	$("#loginout").on("click", WorkoutLog.longinout);
 
 	if(window.localStorage.getItem("sessionToken")) {
