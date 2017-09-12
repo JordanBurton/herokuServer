@@ -56,6 +56,7 @@ $(function(){
 			};
 
 			//login POST
+			console.log(user)
 			var login = $.ajax({
 				type: "POST",
 				url: WorkoutLog.API_BASE + "login",
@@ -64,7 +65,6 @@ $(function(){
 			});
 			//login done/fail
 			login.done(function(data) {
-				console.log("working")
 				if (data.sessionToken) {
 					WorkoutLog.setAuthHeader(data.sessionToken);
 					WorkoutLog.definition.fetchAll();
