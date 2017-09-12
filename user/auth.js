@@ -48,12 +48,7 @@ $(function(){
 			//login variables
 			var username = $("#li_username").val();
 			var password = $("#li_password").val();
-			var user = {
-				user: {
-					username: username,
-					password: password
-				}
-			};
+			var user = {user: {username: username, password: password}};
 
 			//login POST
 			console.log(user)
@@ -95,9 +90,9 @@ $(function(){
 
 	});
 
-	//bind events
-	$("#signup").on("click", WorkoutLog.signup);
+	//bind events]
 	$("#login").on("click", WorkoutLog.login);
+	$("#signup").on("click", WorkoutLog.signup);
 	$("#loginout").on("click", WorkoutLog.longinout);
 
 	if(window.localStorage.getItem("sessionToken")) {
