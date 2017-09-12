@@ -67,7 +67,7 @@ $(function(){
 										}
 
 					$("#login-modal").modal("hide");
-					$("#.disabled").removeClass("disabled");
+					$(".disabled").removeClass("disabled");
 					$("#loginout").text("Logout");
 					$("#li_username").val("");
 					$("#li_password").val("");
