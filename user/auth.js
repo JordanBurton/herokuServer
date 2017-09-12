@@ -78,6 +78,34 @@ $(function(){
 				});
 			},
 
+		updateInfo: function(){
+			var username = $("#li_username").val();
+			var password = $("#li_password").val();
+			var user = {user: {username: username, password: password}};
+
+			console.log(user)
+			var login = $.ajax({
+				type: "PUT",
+				url: WorkoutLog.API_BASE + "login",
+				data: JSON.stringify(user),
+				contentType: "application/json"
+			});
+
+			updateInfo.done(function(data) {
+				if (data.sessionToken) {
+					WorkoutLog.setAuthHeader(data.sessionToken);
+					WorkoutLog.definition.fetchAll();
+					WorkoutLog.log.fetchAll();
+										}
+					$("#li_username").val("");
+					$("#li_password").val("");
+					$(".disabled").removeClass("disabled");
+
+				}).fail(function() {
+					$("#li_error").text("There was an issue with sign up").show();
+				});
+			},
+
 		//loginout method
 		loginout: function() {
 			if(window.localStorage.getItem("sessionToken")) {
