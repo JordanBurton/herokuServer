@@ -8,10 +8,12 @@
 
 		<title>Workout Log</title>
 		<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="./main.css">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="./node_modules/chart.js/dist/Chart.min.js"></script>
 
 	</head>
 
@@ -32,16 +34,16 @@
 		</div>
 	</nav>
 
-		<div class="container">
+		<div class="container homePage">
 			<div class="tab-content">
 				<div class="tab-pane active" id="home">
 					<h2>Workout Log</h2>
 					<div id="forLogin">
-						<button data-toggle="modal" data-target="#login-modal" class="btn btn-primary">Login</button>
-						<button data-toggle="modal" data-target="#signup-modal" class="btn btn-primary">Sign Up</button>
+						<button data-toggle="modal" data-target="#login-modal" class="btn btn-primary homePagebtn">Login</button>
+						<button data-toggle="modal" data-target="#signup-modal" class="btn btn-primary homePagebtn">Sign Up</button>
 					</div>
 					<div id="forLogout" style="display:none;">
-						<button class="btn btn-primary">Logout</button>
+						<button class="btn btn-primary logoutBtn">Logout</button>
 					</div>
 				</div>
 
@@ -49,11 +51,12 @@
 				<div class="tab-pane fade" id="define">
 					<div class="col-md-4">
 						<h2>Define</h2>
-						<label for="def-logype">Log work by</label>
+						<label for="def-logype">Workout Type</label>
 						<select class="form-control" id="def-logtype">
-							<option>Time</option>
-							<option>Weight</option>
-							<option>Reps</option>
+							<option>Aerobic</option>
+							<option>Strength</option>
+							<option>Balance</option>
+							<option>Flexibility</option>
 						</select>
 						<label for="def-description">Description</label>
 						<textarea class="form-control" id="def-description" rows="3"></textarea>
@@ -83,12 +86,26 @@
 						<div>USERNAME</div>
 					<h3>Password</h3>
 						<div>PASSWORD</div>
-					<label for="li_username">Username:</label>
-					<input id="li_username"/>
-					<label for="li_password">Password:</label>
-					<input type="password" id="li_password"/>
+
+					<div id="editAccount">
+						<label for="li_username">Username:</label>
+						<input id="li_username"/>
+						<label for="li_password">Password:</label>
+						<input type="password" id="li_password"/>
+					</div>
 					<br>
-					<button id="updateInfo" class="btn btn-primary">Edit Account</button>
+
+					<script>
+					function myFunction() {
+					    var x = document.getElementById('editAccount');
+					    if (x.style.display === 'block') {
+					        x.style.display = 'none';
+					    } else {
+					        x.style.display = 'block';
+					    }
+					}
+					</script>
+					<button onclick="myFunction()" id="updateInfo" class="btn btn-primary">Edit Account</button>
 				</div>
 				<!--UPDATING A WORKOUT SECTION-->
 				<div class="tab-pane fade" id="update-log">
@@ -111,6 +128,48 @@
 						<h2>History</h2>
 						<ul class="list-group" id="history-list">
 						</ul>
+					</div>
+					<div class="col-md-6">
+					<canvas id="myChart" width="400" height="400"></canvas>
+						<script>
+							var ctx = document.getElementById("myChart");
+							var myChart = new Chart(ctx, {
+							    type: 'bar',
+							    data: {
+							        labels: ["Aerobic","Strength","Balance","Flexibility"],
+							        datasets: [{
+							            label: 'Workouts',
+							            data: [12, 19, 3, 5, 2, 3],
+							            backgroundColor: [
+							                'rgba(255, 99, 132, 0.8)',
+							                'rgba(54, 162, 235, 0.8)',
+							                'rgba(255, 206, 86, 0.8)',
+							                'rgba(75, 192, 192, 0.8)',
+							                'rgba(153, 102, 255, 0.8)',
+							                'rgba(255, 159, 64, 0.8)'
+							            ],
+							            borderColor: [
+							                'rgba(255,99,132,1)',
+							                'rgba(54, 162, 235, 1)',
+							                'rgba(255, 206, 86, 1)',
+							                'rgba(75, 192, 192, 1)',
+							                'rgba(153, 102, 255, 1)',
+							                'rgba(255, 159, 64, 1)'
+							            ],
+							            borderWidth: 1
+							        }]
+							    },
+							    options: {
+							        scales: {
+							            yAxes: [{
+							                ticks: {
+							                    beginAtZero:true
+							                }
+							            }]
+							        }
+							    }
+							});
+						</script>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,25 @@
+.nav-pills a {
+	background-color: lightblue;
+	border-radius: 50px !important;
+}
+.nav-pills>li+li {
+	margin-top: 3px;
+  margin-left: 10px;
+}
+.homePagebtn {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 50px;
+  width: 10%;
+}
+
+.homePage {
+	text-align: center;
+}
+.navbar {
+    background: rgba(255, 255, 255, .3);
+}
+.logoutBtn {
+	margin-top: 3px;
+}
