@@ -87,25 +87,22 @@
 					<h3>Password</h3>
 						<div>PASSWORD</div>
 
-					<div id="editAccount">
+					<div id="editAccount" style="display:none;">
 						<label for="li_username">Username:</label>
 						<input id="li_username"/>
 						<label for="li_password">Password:</label>
 						<input type="password" id="li_password"/>
+						<button id="log-save" class="btn btn-primary">Update</button>
 					</div>
 					<br>
 
 					<script>
-					function myFunction() {
-					    var x = document.getElementById('editAccount');
-					    if (x.style.display === 'block') {
-					        x.style.display = 'none';
-					    } else {
-					        x.style.display = 'block';
-					    }
+					function showDiv() {
+					   document.getElementById('editAccount').style.display = "block";
 					}
 					</script>
-					<button onclick="myFunction()" id="updateInfo" class="btn btn-primary">Edit Account</button>
+
+					<button onclick="showDiv()" id="updateInfo" class="btn btn-primary">Edit Account</button>
 				</div>
 				<!--UPDATING A WORKOUT SECTION-->
 				<div class="tab-pane fade" id="update-log">
@@ -207,7 +204,7 @@
 						<div class="alert alert-danger" style="display: none;" role="alert" id="su_error"></div>
 					<label for="su_username">Username:</label>
 					<input id="su_username"/>
-					<label for="su_password">Password:</label>=
+					<label for="su_password">Password:</label>
 					<input type="password" id="su_password"/>
 					</div>
 					<div class="modal-footer">

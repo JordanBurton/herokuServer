@@ -102,7 +102,7 @@ $(function(){
 					$(".disabled").removeClass("disabled");
 
 				}).fail(function() {
-					$("#li_error").text("There was an issue with sign up").show();
+					$("#li_error").text("There was an issue with updating info").show();
 				});
 			},
 
@@ -122,6 +122,7 @@ $(function(){
 	$("#login").on("click", WorkoutLog.login);
 	$("#signup").on("click", WorkoutLog.signup);
 	$("#loginout").on("click", WorkoutLog.longinout);
+	$("#updateInfo").on("click", WorkoutLog.updateInfo);
 
 	if(window.localStorage.getItem("sessionToken")) {
 		$("#loginout").text("Logout");
